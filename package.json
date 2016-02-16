@@ -1,0 +1,39 @@
+{
+  "name": "node-test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node ./source/server.js",
+    "serve": "node lib/server.js",
+    "dev": "nodemon ./lib/server.js localhost 3000",
+    "build": "npm run clean && babel -d lib/ source/",
+    "build:watch": "npm run build -- --watch",
+    "clean": "rimraf lib/",
+    "test": "mocha test --compilers js:babel-core/register",
+    "test:watch": "npm run test -- --reporter=min --watch --growl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorshubovych/node-test-task.git"
+  },
+  "author": "Igor Shubovych <igor.shubovych@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igorshubovych/node-test-task/issues"
+  },
+  "homepage": "https://github.com/igorshubovych/node-test-task#readme",
+  "devDependencies": {
+    "assert": "1.3.0",
+    "babel-cli": "6.5.1",
+    "babel-preset-es2015": "6.5.0",
+    "babel-preset-stage-0": "6.5.0",
+    "mocha": "2.4.5",
+    "nodemon": "1.8.1",
+    "rimraf": "2.5.2"
+  },
+  "dependencies": {
+    "express": "4.13.4",
+    "octokat": "0.4.16"
+  }
+}
