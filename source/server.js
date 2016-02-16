@@ -1,10 +1,16 @@
 var express = require('express');
 var app = express();
 
+var loadRepo = require('./load-repo');
 var commitsProcessor = require('./process-commits');
 var commitsDB = {};
+var allCommits = [];
 
-commitsProcessor.then(cmts => commitsDB = cmts);
+loadRepo.then(commits => {
+    console.log(`Loaded ${commits.length} commits`);
+    allCommits = commits;
+    commitsDB = commitsProcessor(commits);
+});
 
 var authorCommits = (authorEmail) => {
     if (commitsDB[authorEmail]) {
@@ -36,11 +42,7 @@ var printCommit = (commit) => {
 var printCommits = (cmts) => {
     var response = '';
     response += '<table>';
-    response += `<tr>`;
-    response += `<th>SHA</th>`;
-    response += `<th>Email</th>`;
-    response += `<th>Message</th>`;
-    response += `</tr>`;
+    response += `<tr> <th>SHA</th> <th>Email</th> <th>Message</th> </tr>`;
     response += cmts.map(printCommit).join('\n');
     response += '</table>';
     return response;
