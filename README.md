@@ -1,7 +1,5 @@
 # node-test-task
 
-Task for [donnfelker / example-nodejs-challenge](https://github.com/donnfelker/example-nodejs-challenge).
-
 ## NodeJS Programming Task
 
 In order to be considered for the NodeJS position, you must complete the following steps.
