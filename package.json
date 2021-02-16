@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/igorshubovych/node-test-task#readme",
   "engines": {
-    "node" : ">4.0"
+    "node": ">4.0"
   },
   "dependencies": {
     "express": "4.13.4",

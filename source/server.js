@@ -57,6 +57,17 @@ app.get('/commits/:email', function (req, res) {
     res.send(response);
 });
 
+
+// код ниже былдобавлен мной
+    app.get('/', (req, res) => {
+        var response = '';
+        response += 'Commits:';
+        response += '<br>';
+        response += printCommits(allCommits);
+        res.send(response);
+    })
+// 
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
